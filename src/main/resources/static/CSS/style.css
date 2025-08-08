@@ -1,0 +1,441 @@
+/* POPPINS FONT */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body {
+  background: url(../img/appleOrchard.png);
+  /* background-color: rgba(245, 244, 157, 0.678); */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: rgba(39, 39, 39, 0.4);
+  padding-top: 150px;
+}
+.nav {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100px;
+  line-height: 100px;
+  background: linear-gradient (rgba(39, 39, 39, 0.6), transparent);
+  z-index: 100;
+}
+.nav-logo p {
+  color: white;
+  font-size: 25px;
+  font-weight: 600;
+}
+.nav-menu ul {
+  display: flex;
+}
+.nav-menu ul li {
+  list-style-type: none;
+}
+.nav-menu ul li .link {
+  text-decoration: none;
+  font-weight: 500;
+  color: #fff;
+  padding-bottom: 15px;
+  margin: 0 25px;
+}
+.link:hover,
+.active {
+  border-bottom: 2px solid #fff;
+}
+.nav-button .btn {
+  width: 130px;
+  height: 40px;
+  font-weight: 500;
+  background: rgba(255, 255, 255, 0.4);
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+.btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+#registerBtn {
+  margin-left: 15px;
+}
+.btn.white-btn {
+  background: rgba(255, 255, 255, 0.7);
+}
+.btn.btn.white-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
+.nav-menu-btn {
+  display: none;
+}
+.form-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 512px;
+  height: 420px;
+  overflow: visible;
+  z-index: 2;
+  margin-right: 100px;
+}
+
+.form-box::after {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: -10px;
+  width: 532px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+.login-container {
+  position: absolute;
+  left: 4px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease-in-out;
+}
+.register-container {
+  position: absolute;
+  right: -520px;
+  width: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+.top span {
+  color: #fff;
+  font-size: small;
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+}
+.top span a {
+  font-weight: 500;
+  color: #fff;
+  margin-left: 5px;
+}
+header {
+  color: #fff;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0 30px 0;
+}
+.two-forms {
+  display: flex;
+  gap: 10px;
+}
+.input-field {
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  height: 50px;
+  width: 100%;
+  padding: 0 10px 0 45px;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  transition: 0.2s ease;
+}
+.input-field:hover,
+.input-field:focus {
+  background: rgba(255, 255, 255, 0.25);
+}
+::-webkit-input-placeholder {
+  color: #fff;
+}
+.input-box i {
+  position: relative;
+  top: -35px;
+  left: 17px;
+  color: #fff;
+}
+.submit {
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  height: 45px;
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+.submit:hover {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Login Google Button */
+.login-google-btn {
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  z-index: 10;
+  transition: 0.5s ease-in-out;
+  opacity: 1; /*透明度*/
+}
+
+/* Register Google Button */
+.register-google-btn {
+  position: absolute;
+  bottom: -80px;
+  left: 0;
+  right: -100%;
+  width: 100%;
+  z-index: 10;
+  transition: 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.google-login-btn {
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+  height: 45px;
+  width: 100%;
+  border: none;
+  border-radius: 30px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.google-login-btn:hover {
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: 1px 5px 7px 1px rgba(0, 0, 0, 0.2);
+}
+
+.google-login-btn i {
+  font-size: 18px;
+  color: #4285f4;
+}
+
+.google-login-btn span {
+  font-weight: 500;
+}
+
+.two-col {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: small;
+  margin-top: 10px;
+}
+.two-col .one {
+  display: flex;
+  gap: 5px;
+}
+.two label a {
+  text-decoration: none;
+  color: #fff;
+}
+.two label a:hover {
+  text-decoration: underline;
+}
+.mini-footer {
+  width: 100%;
+  height: 60px;
+  background: rgba(17, 17, 17, 0.558);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.mini-footer-inner {
+  width: 512px;
+  margin-right: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mini-footer-text {
+  color: rgba(152, 147, 147, 0.93);
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.mini-footer-text p {
+  margin: 0;
+  line-height: 1.2;
+}
+.mini-footer-text p:first-child {
+  font-size: 14px;
+  margin-bottom: 2px;
+}
+.mini-footer-text p:last-child {
+  font-size: 12px;
+  opacity: 0.8;
+}
+.welcome-container {
+  position: fixed;
+  top: 140px;
+  left: 150px;
+  z-index: 999;
+  width: 600px;
+}
+.welcome-title {
+  color: #ffeb99;
+  text-align: left;
+  /* text-shadow: 0px 0px 10px rgba(153, 102, 61, 0.804); */
+  text-shadow: 1px 1px 0 #7e3333, 2px 2px 5px rgba(153, 102, 61, 0.804);
+
+  font-size: 68px;
+  font-weight: 600;
+  /* border: 2px solid red; */
+  /* padding: 10px; */
+  width: auto;
+  /* margin-bottom: 20px; */
+}
+.welcome-text {
+  color: #ffffffc7;
+  text-align: left;
+  /* line-height: 1.6; */
+}
+.welcome-text p {
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+.welcome-text p:last-child {
+  font-size: 20px;
+  font-weight: 400;
+}
+.get-started-btn {
+  background: #ff135a;
+  font-weight: 600;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: 1s;
+  font-size: 15px;
+  color: #ffffff;
+  width: 30%;
+  height: 40px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 0.2em 0 #ff135a;
+}
+.get-started-block {
+  background: rgb(255, 127, 80);
+  box-shadow: 0 0 10px #ff7f50, 0 0 20px #ff7f50;
+  width: 31.35%;
+  height: 50px;
+  border-radius: 30px;
+  position: relative;
+  margin-top: -45px;
+  margin-left: -0.55%;
+  /* background-color: #436727d8; */
+  z-index: 1;
+}
+.get-started-btn:hover,
+.get-started-btn:focus {
+  transition: 0.5s;
+  -webkit-animation: btn-content 1s;
+  animation: btn-content 1s;
+  outline: 0.1em solid transparent;
+  outline-offset: 0.2em;
+  box-shadow: 0 0 0.4em 0 #ff135a;
+}
+
+.get-started-btn .icon-arrow {
+  transition: 0.5s;
+  margin-right: 0px;
+  transform: scale(0.6);
+}
+
+.get-started-btn:hover .icon-arrow {
+  transition: 0.5s;
+  margin-right: 25px;
+}
+
+.icon-arrow {
+  width: 20px;
+  margin-left: 15px;
+  position: relative;
+  top: 6%;
+}
+
+/* SVG animations */
+#arrow-icon-one {
+  transition: 0.4s;
+  transform: translateX(-60%);
+}
+
+#arrow-icon-two {
+  transition: 0.5s;
+  transform: translateX(-30%);
+}
+
+.get-started-btn:hover #arrow-icon-three {
+  animation: color_anim 1s infinite 0.2s;
+}
+
+.get-started-btn:hover #arrow-icon-one {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.6s;
+}
+
+.get-started-btn:hover #arrow-icon-two {
+  transform: translateX(0%);
+  animation: color_anim 1s infinite 0.4s;
+}
+
+/* SVG animations */
+@keyframes color_anim {
+  0% {
+    fill: white;
+  }
+
+  50% {
+    fill: #ff135a;
+  }
+
+  100% {
+    fill: white;
+  }
+}
+
+/* Button animations */
+@-webkit-keyframes btn-content {
+  0% {
+    outline: 0.2em solid #ff135a;
+    outline-offset: 0;
+  }
+}
+
+@keyframes btn-content {
+  0% {
+    outline: 0.2em solid #ff135a;
+    outline-offset: 0;
+  }
+}

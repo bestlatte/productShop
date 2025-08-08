@@ -1,0 +1,22 @@
+.mini-footer-icons {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.mini-footer-icon i {
+  font-size: 2rem;
+  color: #333;
+  transition: color 0.2s;
+}
+.mini-footer-icon.twitter:hover i {
+  color: rgba(255, 255, 255, 0.727);
+}
+.mini-footer-icon.facebook:hover i {
+  color: rgba(24, 119, 243, 0.662);
+}
+.mini-footer-icon.instagram:hover i {
+  background: linear-gradient(45deg, #833ab49c, #fd1d1dca, #fcb045aa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

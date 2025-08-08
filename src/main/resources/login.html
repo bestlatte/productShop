@@ -1,38 +1,43 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>會員系統</title>
-</head>
-<body>
-<h2>會員註冊表單</h2>
-<form id="registerForm">
-    <label>Email: <input type="email" name="email" required></label><br><br>
-    <label>密碼: <input type="password" name="password" required></label><br><br>
-    <label>姓名: <input type="text" name="name" required></label><br><br>
-    <label>手機: <input type="text" name="phone"></label><br><br>
-    <button type="submit">送出註冊</button>
-</form>
-<p id="registerResult"></p>
+  </head>
+  <body>
+    <h2>會員註冊表單</h2>
+    <form id="registerForm">
+      <label>Email: <input type="email" name="email" required /></label
+      ><br /><br />
+      <label>密碼: <input type="password" name="password" required /></label
+      ><br /><br />
+      <label>姓名: <input type="text" name="name" required /></label
+      ><br /><br />
+      <label>手機: <input type="text" name="phone" /></label><br /><br />
+      <button type="submit">送出註冊</button>
+    </form>
+    <p id="registerResult"></p>
 
-<hr>
+    <hr />
 
-<h2>會員登入</h2>
-<form id="loginForm">
-    <label>Email: <input type="email" name="email" required></label><br><br>
-    <label>密碼: <input type="password" name="password" required></label><br><br>
-    <button type="submit">登入</button>
-</form>
-<p id="loginResult"></p>
+    <h2>會員登入</h2>
+    <form id="loginForm">
+      <label>Email: <input type="email" name="email" required /></label
+      ><br /><br />
+      <label>密碼: <input type="password" name="password" required /></label
+      ><br /><br />
+      <button type="submit">登入</button>
+    </form>
+    <p id="loginResult"></p>
 
-<hr>
+    <hr />
 
-<h3>重寄驗證信</h3>
-<input type="email" id="resendEmail" placeholder="請輸入 email">
-<button onclick="resendVerification()">重寄驗證信</button>
-<p id="resendResult"></p>
+    <h3>重寄驗證信</h3>
+    <input type="email" id="resendEmail" placeholder="請輸入 email" />
+    <button onclick="resendVerification()">重寄驗證信</button>
+    <p id="resendResult"></p>
 
-<script>
+    <!-- <script>
     // 註冊
     document.getElementById("registerForm").addEventListener("submit", function(event) {
         event.preventDefault();
@@ -97,6 +102,6 @@
             .then(msg => document.getElementById("resendResult").innerText = msg)
             .catch(err => document.getElementById("resendResult").innerText = "錯誤：" + err);
     }
-</script>
-</body>
+</script> -->
+  </body>
 </html>
