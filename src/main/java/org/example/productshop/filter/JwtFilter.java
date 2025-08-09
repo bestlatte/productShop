@@ -25,7 +25,9 @@ public class JwtFilter implements Filter {
             "/users/resend-verification",
             "/users/password/reset/request",
             "/users/password/reset/confirm",
-            "/error"
+            "/error",
+            "/api/cart/add",  // ← 測試用放行購物車新增
+            "/api/products/search"  // ← 測試用搜尋商品
     );
 
     @Override

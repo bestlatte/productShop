@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8" />
+    <title>商品搜尋測試</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        input { padding: 8px; width: 240px; }
+        button { padding: 8px 14px; margin-left: 8px; }
+        ul { margin-top: 16px; }
+    </style>
+</head>
+<body>
+<h2>🔎 商品搜尋</h2>
+<input id="kw" placeholder="輸入關鍵字，如：蓮霧" />
+<button onclick="doSearch()">搜尋</button>
+<pre id="err" style="color:#c00"></pre>
+<ul id="list"></ul>
+
+<script>
+    function doSearch() {
+        const kw = document.getElementById('kw').value.trim();
+        document.getElementById('err').textContent = '';
+        document.getElementById('list').innerHTML = '';
+
+        fetch(`http://localhost:8080/api/products/search?keyword=${encodeURIComponent(kw)}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+                // 若你的 JWT 過濾器沒白名單，就加這行：
+                // 'Authorization': 'Bearer ' + (localStorage.getItem('token') || '')
+            }
+        })
+            .then(async res => {
+                const data = await res.json();
+                if (!res.ok) {
+                    document.getElementById('err').textContent = `${data.error} | ${data.message}`;
+                    return;
+                }
+                const ul = document.getElementById('list');
+                data.results.forEach(p => {
+                    const li = document.createElement('li');
+                    li.textContent = `#${p.productId} ${p.name} - NT$${p.price} (庫存:${p.stockQuantity})`;
+                    ul.appendChild(li);
+                });
+            })
+            .catch(e => {
+                document.getElementById('err').textContent = '前端連線失敗：' + e;
+            });
+    }
+</script>
+</body>
+</html>

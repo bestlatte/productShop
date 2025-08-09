@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>簡易購物網站</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f5f5f5;}
+        h1 { text-align: center;}
+        .product-container { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;}
+        .product { background: white; padding: 15px; border-radius: 10px; width: 220px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); text-align: center;}
+        .product img { max-width: 100%; height: auto; border-radius: 8px;}
+        .product h3 { margin: 10px 0 5px;}
+        .product p { margin: 5px 0;}
+        button { padding: 8px 16px; background-color: #2b8dfc; color: white; border: none; border-radius: 5px; cursor: pointer;}
+        button:hover { background-color: #1167c3;}
+        .cart { margin-top: 40px; background: white; padding: 20px; border-radius: 10px; max-width: 600px; margin-left: auto; margin-right: auto; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    </style>
+</head>
+<body>
+<h1>購物網站</h1>
+<div class="product-container">
+    <div class="product">
+        <img src="https://via.placeholder.com/200x150?text=商品A" alt="商品A">
+        <h3>紅色T恤</h3>
+        <p>NT$399</p>
+        <button onclick="addToCart(1, '紅色T恤', 399)">加入購物車</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/200x150?text=商品B" alt="商品B">
+        <h3>無線耳機</h3>
+        <p>NT$1299</p>
+        <button onclick="addToCart(2, '無線耳機', 1299)">加入購物車</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/200x150?text=商品C" alt="商品C">
+        <h3>行動電源</h3>
+        <p>NT$699</p>
+        <button onclick="addToCart(3, '行動電源', 699)">加入購物車</button>
+    </div>
+    <div class="product">
+        <img src="https://via.placeholder.com/200x150?text=商品D" alt="商品D">
+        <h3>咖啡濾壓壺</h3>
+        <p>NT$499</p>
+        <button onclick="addToCart(4, '咖啡濾壓壺', 499)">加入購物車</button>
+    </div>
+</div>
+
+<div class="cart">
+    <h2>🛒 購物車內容</h2>
+    <ul id="cart-list">
+        <li>尚未加入任何商品</li>
+    </ul>
+</div>
+
+<script>
+    function addToCart(productId, productName, price) {
+        fetch("http://localhost:8080/api/cart/add", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                userId: 1,           // 固定測試帳號
+                productId: productId,
+                quantity: 1
+            })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.message) {
+                    alert(`加入購物車成功：${productName}`);
+                } else if (data.error) {
+                    alert(`加入失敗：${data.message}`);
+                }
+            })
+            .catch(err => {
+                alert("後端伺服器連線失敗或壞掉");
+            });
+    }
+</script>
+</body>
+</html>
