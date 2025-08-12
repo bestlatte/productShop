@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- ===== HTML 文件結構 ===== -->
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech2etc Ecommerce Tutorial</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+
+<!-- ===== 頁面導航區塊 ===== -->
+
+<body>
+  <section id="header">
+    <a href="#" id="logo-link">
+      <img src="img/Logo2.png" alt="SwanGo Logo" id="fixed-logo" />
+    </a>
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Origin Info</a></li>
+      <!-- <li><a href="blog.html">Blog</a></li> -->
+      <li><a href="about.html">About</a></li>
+      <li><a href="FAQ.html">FAQ</a></li>
+      <li id="lg-bag">
+        <a href="./cart.html" class="active"><i class="far fa-shopping-bag"></i></a>
+      </li>
+      <a id="close" href="#"><i class="far fa-times"></i></a>
+    </ul>
+    </div>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+  <!-- ===== 主要橫幅區塊 ===== -->
+  <section id="hero">
+    <h4>實價即時更新・新鮮直送</h4>
+    <h2>今天的水果價，馬上看</h2>
+    <h1>與產地同步，每日最新價格與供應量</h1>
+    <p>產季波動、節日需求？即時更新不錯過最佳價格！</p>
+    <button>馬上逛逛</button>
+  </section>
+
+  <!-- ===== 功能特色區塊 (已註解) ===== -->
+  <!-- <section id="feature" class="section-p1">
+      <div class="fe-box">
+        <img src="img/features/f1.png" alt="" />
+        <h6>Free Shipping</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f2.png" alt="" />
+        <h6>Online Order</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f3.png" alt="" />
+        <h6>Save Money</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f4.png" alt="" />
+        <h6>Promotions</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f5.png" alt="" />
+        <h6>Happy Sell</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <h6>F24/7 Support</h6>
+      </div>
+    </section> -->
+
+  <!-- ===== 當季鮮果商品區塊 ===== -->
+  <section id="product1" class="section-p1">
+    <h2>當季鮮果上架！</h2>
+    <p>正值產季，鮮甜多汁</p>
+    <div class="main-content">
+      <!-- ===== 側邊欄 ===== -->
+      <aside class="sidebar">
+        <!-- ===== 商品類別 ===== -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">商品類別</h3>
+          <ul class="sidebar-list">
+            <li><a href="#">蘋果</a></li>
+            <li>
+              <a href="#">葡萄 <span class="new-tag">NEW</span></a>
+            </li>
+            <li><a href="#">莓果</a></li>
+            <li><a href="#">芒果</a></li>
+            <li><a href="#">地瓜</a></li>
+            <li>
+              <a href="#">桃 <span class="new-tag">NEW</span></a>
+            </li>
+            <li><a href="#">梨</a></li>
+            <li>
+              <a href="#">柑橘 <span class="new-tag">NEW</span></a>
+            </li>
+            <li><a href="#">哈密瓜</a></li>
+            <li><a href="#">奇異果</a></li>
+          </ul>
+        </div>
+
+        <!-- ===== 優惠促銷 ===== -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">優惠促銷</h3>
+          <ul class="sidebar-list">
+            <li>
+              <a href="#">特價專區 <span class="new-tag">NEW</span></a>
+            </li>
+            <li>
+              <a href="#">加價購專區 <span class="new-tag">NEW</span></a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- ===== 您的預算 ===== -->
+        <div class="sidebar-section">
+          <h3 class="sidebar-title">您的預算</h3>
+          <ul class="sidebar-list">
+            <li><a href="#">0-999$</a></li>
+            <li><a href="#">1000-1999$</a></li>
+            <li><a href="#">2000-2999$</a></li>
+            <li><a href="#">3000$ ↑</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ===== 商品列表 ===== -->
+      <div class="products-area">
+        <div class="pro-container center-cards">
+          <div class="pro">
+            <img src="./img/FruitsImg/apple.jpg" alt="" />
+            <div class="des">
+              <span class="product-tag">日本富士</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+            <div class="des">
+              <span>adidas</span>
+              <h5>台灣高山蜜蘋果</h5>
+              <div class="star">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <h4>$78</h4>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== 促銷橫幅區塊 ===== -->
+  <div class="banner-container">
+    <section id="banner" class="section-m1">
+      <h4>產地直送，新鮮看得見</h4>
+      <h2>Up to <span>30% Off</span> – Seasonal Fruits 🍎🍊🍇</h2>
+      <button class="normal">立即選購</button>
+    </section>
+  </div>
+
+  <!-- ===== 人氣必買商品區塊 ===== -->
+  <section id="product1" class="section-p1 center-target">
+    <h2>人氣必買經典款</h2>
+    <p>甜度穩定，回購率最高的安心選擇</p>
+    <div class="pro-container">
+      <div class="pro">
+        <img src="./img/FruitsImg/apple.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+      </div>
+      <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+      </div>
+      <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+      </div>
+      <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+      </div>
+      <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+      </div>
+      <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+              
+        <!-- --------------------------------------------------------測試 -->
+         </div>
+         <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+        </div>
+         <div class="pro">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <div class="des">
+          <span>adidas</span>
+          <h5>台灣高山蜜蘋果</h5>
+          <div class="star">
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+            <i class="fas fa-star"></i>
+          </div>
+          <h4>$78</h4>
+        </div>
+        <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+
+
+        <!-- -------------------------------------------------------------測試 -->
+
+    </div>
+  </section>
+
+  <!-- ===== 促銷橫幅區塊 ===== -->
+  <div class="banner-container">
+    <section id="banner" class="section-m1">
+      <h4>Repair Services</h4>
+      <h2>Up to <span>70% Off</span> – All t-Shirts & Accessories</h2>
+      <button class="normal">Explore More</button>
+    </section>
+
+
+    <!-- ===== 限量商品區塊 ===== -->
+    <section id="product1" class="section-p1 center-target">
+      <h2>最後限量，錯過等明年</h2>
+      <p>倒數上架中，把握最後鮮甜</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>Cartoon Astronaut T-Shirts</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>台灣高山蜜蘋果</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>台灣高山蜜蘋果</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>台灣高山蜜蘋果</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>台灣高山蜜蘋果</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+          <div class="des">
+            <span>adidas</span>
+            <h5>台灣高山蜜蘋果</h5>
+            <div class="star">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </div>
+            <h4>$78</h4>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 小型橫幅區塊 ===== -->
+    <section id="sm-banner" class="section-p1">
+      <div class="banner-box">
+        <h4>當季優惠</h4>
+        <h2>買一送一 限時搶購</h2>
+        <span>嚴選產地直送水果，新鮮看得見</span>
+        <button class="white">立即搶購</button>
+      </div>
+      <div class="banner-box banner-box2">
+        <h4>夏日嚴選</h4>
+        <h2>即將開賣</h2>
+        <span>最新鮮的季節水果即將上架</span>
+        <button class="white">查看商品</button>
+      </div>
+    </section>
+
+    <!-- ===== 季節性橫幅區塊 ===== -->
+    <section id="banner3">
+      <div class="banner-box">
+        <h2>當令鮮果特賣</h2>
+        <h3>本季水果 最高 30% OFF</h3>
+      </div>
+      <div class="banner-box banner-box2">
+        <h2>新品上架</h2>
+        <h3>本週新增 5 款熱賣水果</h3>
+      </div>
+      <div class="banner-box banner-box3">
+        <h2>禮盒專區</h2>
+        <h3>送禮首選 高人氣組合</h3>
+      </div>
+    </section>
+
+    <!-- ===== 電子報訂閱區塊 ===== -->
+    <section id="newsletter" class="section-p1 section-m1">
+      <div class="newstext">
+        <h4>Sign Up For Newsletters</h4>
+        <p>
+          Get E-mail updates about our latest shop and
+          <span>special offers.</span>
+        </p>
+      </div>
+      <div class="form">
+        <input type="text" placeholder="Your email address" />
+        <button class="normal">Sign Up</button>
+      </div>
+    </section>
+
+    <!-- ===== 頁面底部區塊 ===== -->
+    <footer class="section-p1">
+      <div class="col">
+        <img class="logo" src="img/logo.png" alt="" />
+        <h4>Contact</h4>
+        <p><strong>Address: </strong> 408 台中市 南屯區 公益路二段 51號18樓</p>
+        <p><strong>Phone:</strong> +04 1234 5678 /(+886) 12 2345 6789</p>
+        <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+        <div class="follow">
+          <h4>Follow Us</h4>
+          <div class="icon">
+            <i class="fab fa-facebook-f"></i>
+            <i class="fab fa-twitter"></i>
+            <i class="fab fa-instagram"></i>
+            <!-- <i class="fab fa-pinterest-p"></i> -->
+            <!-- <i class="fab fa-youtube"></i> -->
+          </div>
+        </div>
+      </div>
+
+      <div class="col">
+        <h4>About</h4>
+        <a href="#">About Us</a>
+        <a href="#">Delivery Information</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms & Conditions</a>
+        <a href="#">Contact Us</a>
+      </div>
+
+      <div class="col">
+        <h4>My Account</h4>
+        <a href="#">Sign In</a>
+        <a href="#">View Cart</a>
+        <a href="#">My Wishlist</a>
+        <a href="#">Track My Order</a>
+        <a href="#">Help</a>
+      </div>
+
+      <div class="col install">
+        <h4>Install App</h4>
+        <p>From App Store or Google Play</p>
+        <div class="row">
+          <img src="img/pay/app.jpg" alt="" />
+          <img src="img/pay/play.jpg" alt="" />
+        </div>
+        <p>Secured Payment Gateways</p>
+        <img src="img/pay/pay.png" alt="" />
+      </div>
+
+      <div class="copyright">
+        <p>© 2025.Big company</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

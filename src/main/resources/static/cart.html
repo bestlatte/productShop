@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>選果 || 選擇最好的果</title>
+
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+  <link rel="stylesheet" href="./CSS/style.css" />
+</head>
+
+<body>
+  <section id="header">
+    <a href="#" id="logo-link">
+      <img src="img/Logo2.png" alt="SwanGo Logo" id="fixed-logo" />
+    </a>
+    <ul id="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="shop.html">Origin Info</a></li>
+      <!-- <li><a href="blog.html">Blog</a></li> -->
+      <li><a href="about.html">About</a></li>
+      <li><a href="FAQ.html">FAQ</a></li>
+      <li id="lg-bag">
+        <a href="#" class="active"><i class="far fa-shopping-bag"></i></a>
+      </li>
+      <a id="close" href="#"><i class="far fa-times"></i></a>
+    </ul>
+    <div id="mobile">
+      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+      <i id="bar" class="fas fa-outdent"></i>
+    </div>
+  </section>
+
+  <!-- <section id="page-header" class="about-header"> >> 輪播圖會有這背景 我先取消掉 -->
+  <div class="slideshow">
+    <div class="slides">
+      <div class="slide__item fades">
+        <div class="slide__pagenumber">1 / 3</div>
+        <img src="./img/test/test1.jpg" />
+        <div class="slide__content"></div>
+      </div>
+      <div class="slide__item fades">
+        <div class="slide__pagenumber">2 / 3</div>
+        <img src="./img/test/test2.jpg" />
+        <div class="slide__content"></div>
+      </div>
+      <div class="slide__item fades">
+        <div class="slide__pagenumber">3 / 3</div>
+        <img src="./img/test/test3.jpg" />
+        <div class="slide__content"></div>
+      </div>
+    </div>
+  </div>
+  <a id="prev" class="slide__arraw slide__arraw--prev"> ❮ </a>
+  <a id="next" class="slide__arraw slide__arraw--next"> ❯ </a>
+  <div class="slide__dot">
+    <div class="dot" data-value="1"></div>
+    <div class="dot" data-value="2"></div>
+    <div class="dot" data-value="3"></div>
+  </div>
+
+  <section id="cart" class="section-p1">
+  <table width="100%">
+    <!-- 等比欄寬，避免全擠在右邊 -->
+    <colgroup>
+      <col style="width: 8%">
+      <col style="width: 12%">
+      <col style="width: 30%">
+      <col style="width: 12%">
+      <col style="width: 14%">
+      <col style="width: 12%">
+      <col style="width: 12%">
+    </colgroup>
+
+    <thead>
+      <tr>
+        <td>移除</td>
+        <td>圖片</td>
+        <td>商品名稱</td>
+        <td>單價</td>
+        <td>數量</td>
+        <td>小計</td>
+        <td>操作</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      
+      <!-- 商品列 1 -->
+        <tr data-product-id="1" data-price="4500">
+          <td><a href="#" class="btn-remove"><i class="far fa-times-circle"></i></a></td>
+          <td>
+            <a href="sproduct.html"><img src="img/FruitsImg/null/G2_0.jpg" alt="富士蘋果" /></a>
+          </td>
+          <td>特選富士蘋果（單顆裝）</td>
+          <td class="unit-price">$4,500</td>
+          <td>
+            <div class="qty" data-min="1" data-max="99">
+              <button class="qty-btn" data-action="dec" aria-label="減少一個">−</button>
+              <input class="qty-input" type="text" value="1" inputmode="numeric" aria-label="數量" readonly>
+              <button class="qty-btn" data-action="inc" aria-label="增加一個">＋</button>
+            </div>
+          </td>
+          <td class="line-subtotal">$4,500</td>
+          <td><button class="btn-add">加入購物車</button></td>
+        </tr>
+
+        <!-- 商品列 2 -->
+        <tr data-product-id="2" data-price="3900">
+          <td><a href="#" class="btn-remove"><i class="far fa-times-circle"></i></a></td>
+          <td>
+            <a href="sproduct.html"><img src="img/FruitsImg/null/G2_0.jpg" alt="香蕉" /></a>
+          </td>
+          <td>香蕉一串（約500g）</td>
+          <td class="unit-price">$3,900</td>
+          <td>
+            <div class="qty" data-min="1" data-max="99">
+              <button class="qty-btn" data-action="dec" aria-label="減少一個">−</button>
+              <input class="qty-input" type="text" value="1" inputmode="numeric" aria-label="數量" readonly>
+              <button class="qty-btn" data-action="inc" aria-label="增加一個">＋</button>
+            </div>
+          </td>
+          <td class="line-subtotal">$3,900</td>
+          <td><button class="btn-add">加入購物車</button></td>
+        </tr>
+
+        <!-- 商品列 3 -->
+        <tr data-product-id="3" data-price="8900">
+          <td><a href="#" class="btn-remove"><i class="far fa-times-circle"></i></a></td>
+          <td>
+            <a href="sproduct.html"><img src="img/FruitsImg/null/G2_0.jpg" alt="巨峰葡萄" /></a>
+          </td>
+          <td>巨峰葡萄（半斤裝）</td>
+          <td class="unit-price">$8,900</td>
+          <td>
+            <div class="qty" data-min="1" data-max="99">
+              <button class="qty-btn" data-action="dec" aria-label="減少一個">−</button>
+              <input class="qty-input" type="text" value="1" inputmode="numeric" aria-label="數量" readonly>
+              <button class="qty-btn" data-action="inc" aria-label="增加一個">＋</button>
+            </div>
+          </td>
+          <td class="line-subtotal">$8,900</td>
+          <td><button class="btn-add">加入購物車</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section id="cart-add" class="section-p1">
+    <div id="cuopon">
+      <h3>使用優惠券</h3>
+      <div>
+        <input type="text" placeholder="請輸入優惠碼" />
+        <button id="applyBtn" class="normal">套用</button>
+      </div>
+    </div>
+
+    <div id="subtotal">
+      <h3>購物車總計</h3>
+      <table>
+        <tr>
+          <td>購物車小計</td>
+          <td id="summary-subtotal">$ 17,300</td>
+        </tr>
+        <tr>
+          <td>運費</td>
+          <td id="summary-shipping">免運費</td>
+        </tr>
+        <tr>
+          <td><strong>總計</strong></td>
+          <td><strong id="summary-total">$ 17,300</strong></td>
+        </tr>
+      </table>
+      <button class="normal">前往結帳</button>
+    </div>
+  </section>
+
+  <footer class="section-p1">
+    <div class="col">
+      <img class="logo" src="img/Logo2.png" alt="" />
+      <h4>Contact</h4>
+      <p><strong>Address:</strong> 408 台中市 南屯區 公益路二段 51號18樓</p>
+      <p><strong>Phone:</strong> +04 1234 5678 /(+886) 12 2345 6789</p>
+      <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+      <div class="follow">
+        <h4>Follow Us</h4>
+        <div class="icon">
+          <i class="fab fa-facebook-f"></i>
+          <i class="fab fa-twitter"></i>
+          <i class="fab fa-instagram"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <h4>About</h4>
+      <a href="#">About Us</a>
+      <a href="#">Delivery Information</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <div class="col">
+      <h4>My Account</h4>
+      <a href="#">Sign In</a>
+      <a href="#">View Cart</a>
+      <a href="#">My Wishlist</a>
+      <a href="#">Track My Order</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="col install">
+      <h4>Install App</h4>
+      <p>From App Store or Google Play</p>
+      <div class="row">
+        <img src="img/pay/app.jpg" alt="" />
+        <img src="img/pay/play.jpg" alt="" />
+      </div>
+      <p>Secured Payment Gateways</p>
+      <img src="img/pay/pay.png" alt="" />
+    </div>
+
+    <div class="copyright">
+      <p>© 2025.Big company</p>
+    </div>
+  </footer>
+
+  <div class="bottom-bar">
+    <div id="bottom-total">總金額：$???????</div>
+    <button onclick="alert('尚未開放')">結帳</button>
+  </div>
+
+  <script src="./JS/script.js"></script>
+</body>
+</html>
