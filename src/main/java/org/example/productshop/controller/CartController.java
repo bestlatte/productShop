@@ -17,6 +17,7 @@ public class CartController {
     @Autowired
     private CartService cartService;
 
+    // 加入購物車
     @PostMapping("/add")
     public ResponseEntity<?> addToCart(@RequestBody CartRequest request) {
         try {
@@ -29,9 +30,36 @@ public class CartController {
     }
 
 
+    // 移除購物車
     @DeleteMapping("/remove")
     public ResponseEntity<?> remove(@RequestParam long cartItemId) {
         String msg = cartService.removeFromCart(cartItemId);
         return ResponseEntity.ok(Map.of("message", msg));
+    }
+
+
+    // 購物車商品數量增減
+    @PutMapping("/update")
+    public ResponseEntity<?> updateQuantity(@RequestBody Map<String, Object> body) {
+        long cartItemId = ((Number) body.get("cartItemId")).longValue();
+        int quantity = ((Number) body.get("quantity")).intValue();
+
+        try {
+            cartService.updateQuantity(cartItemId, quantity);
+            return ResponseEntity.ok(Map.of("message", "商品數量已更新"));
+        } catch (RuntimeException e) {
+            if ("OUT_OF_STOCK".equals(e.getMessage())) {
+                return ResponseEntity.status(400).body(Map.of(
+                        "error", "OUT_OF_STOCK",
+                        "message", "商品庫存不足"
+                ));
+            } else if ("ITEM_NOT_FOUND".equals(e.getMessage())) {
+                return ResponseEntity.status(404).body(Map.of(
+                        "error", "ITEM_NOT_FOUND",
+                        "message", "購物車中沒有此商品"
+                ));
+            }
+            throw e;
+        }
     }
 }

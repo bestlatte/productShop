@@ -11,6 +11,11 @@ public class CartService {
     @Autowired
     private ShoppingCartItemDao cartItemDao;
 
+
+    @Autowired
+    private ShoppingCartItemDao cartDao;
+
+
     public String addToCart(Integer userId, Integer productId, Integer quantity) {
         ShoppingCartItem item = cartItemDao.findByUserIdAndProductId(userId, productId);
         if (item == null) {
@@ -30,6 +35,22 @@ public class CartService {
             throw new ItemNotFoundException("購物車中沒有此商品");
         }
         return "商品已從購物車刪除";
+    }
+
+
+    public void updateQuantity(long cartItemId, int quantity) {
+        Integer stock = cartDao.getStockByCartItemId(cartItemId); // ✅ 用物件呼叫
+        if (stock == null) {
+            throw new RuntimeException("ITEM_NOT_FOUND");
+        }
+        if (quantity > stock) {
+            throw new RuntimeException("OUT_OF_STOCK");
+        }
+
+        int rows = cartDao.updateCartItemQuantity(cartItemId, quantity);
+        if (rows == 0) {
+            throw new RuntimeException("ITEM_NOT_FOUND");
+        }
     }
 
 }

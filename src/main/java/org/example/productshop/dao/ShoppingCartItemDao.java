@@ -44,8 +44,29 @@ public class ShoppingCartItemDao {
         jdbcTemplate.update(sql, params);
     }
 
+    // 刪除購物車商品
     public int deleteById(long cartItemId) {
         String sql = "DELETE FROM shopping_cart_items WHERE id = :id";
         return jdbcTemplate.update(sql, new MapSqlParameterSource("id", cartItemId));
+    }
+
+
+    // 新增(減少)購物車商品
+    public int updateCartItemQuantity(long cartItemId, int quantity) {
+        String sql = "UPDATE shopping_cart_items SET quantity = :quantity WHERE id = :id";
+        return jdbcTemplate.update(sql, new MapSqlParameterSource()
+                .addValue("quantity", quantity)
+                .addValue("id", cartItemId));
+    }
+
+    public int getStockByCartItemId(long cartItemId) {
+        String sql = """
+        SELECT p.stock_quantity
+        FROM shopping_cart_items c
+        JOIN products p ON c.product_id = p.id
+        WHERE c.id = :id
+    """;
+        return jdbcTemplate.query(sql, new MapSqlParameterSource("id", cartItemId),
+                rs -> rs.next() ? rs.getInt("stock_quantity") : 0);
     }
 }
