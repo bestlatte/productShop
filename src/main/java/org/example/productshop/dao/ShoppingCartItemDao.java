@@ -43,4 +43,9 @@ public class ShoppingCartItemDao {
         params.addValue("productId", productId);
         jdbcTemplate.update(sql, params);
     }
+
+    public int deleteById(long cartItemId) {
+        String sql = "DELETE FROM shopping_cart_items WHERE id = :id";
+        return jdbcTemplate.update(sql, new MapSqlParameterSource("id", cartItemId));
+    }
 }

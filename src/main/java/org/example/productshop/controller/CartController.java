@@ -1,5 +1,6 @@
 package org.example.productshop.controller;
 
+import org.example.productshop.entity.CartRemoveRequest;
 import org.example.productshop.entity.CartRequest;
 import org.example.productshop.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,5 +26,12 @@ public class CartController {
             e.printStackTrace(); // ★ 看 console 紅字，定位哪一行炸
             return ResponseEntity.status(500).body(Map.of("error","RUNTIME_ERROR","message","執行期間發生錯誤"));
         }
+    }
+
+
+    @DeleteMapping("/remove")
+    public ResponseEntity<?> remove(@RequestParam long cartItemId) {
+        String msg = cartService.removeFromCart(cartItemId);
+        return ResponseEntity.ok(Map.of("message", msg));
     }
 }

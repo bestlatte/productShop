@@ -65,4 +65,12 @@ public class GlobalExceptionHandler {
                 "message", "此路徑不支援 " + ex.getMethod() + "，請改用 GET"
         ));
     }
+
+    //刪除購物車商品
+    public ResponseEntity<?> handleCartItemNotFound(Exception e) {
+        return ResponseEntity.status(404).body(Map.of(
+                "error", "ITEM_NOT_FOUND",
+                "message", "購物車中沒有此商品"
+        ));
+    }
 }
