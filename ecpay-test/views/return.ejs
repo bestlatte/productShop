@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8" />
     <title>交易結果</title>
     <link rel="stylesheet" href="/stylesheets/style.css" />
     <style>
@@ -62,38 +63,67 @@
   </head>
   <body>
     <div class="transaction-result">
-      <h1 class="result-title">交易結果</h1>
+      <h1 class="result-title">交易結果（debug）</h1>
 
       <div class="info-item">
         <div class="info-label">交易狀態</div>
         <div
-          class="info-value <%= query.RtnCode === '1' ? 'status-success' : 'status-failed' %>"
+          class="info-value <%= (success ? 'status-success' : 'status-failed') %>"
         >
-          <%= query.RtnMsg || '無資料' %>
+          <%= message || '無資料' %>
         </div>
+        <% if (!query || Object.keys(query).length === 0) { %>
+        <div style="margin-top: 8px; color: #888; font-size: 13px">
+          ※ 提醒：ClientBackURL 通常不會帶交易參數。交易詳情請以
+          ReturnURL（Server 回呼）為準。
+        </div>
+        <% } %>
       </div>
 
       <div class="info-item">
         <div class="info-label">交易金額</div>
-        <div class="info-value">NT$ <%= query.TradeAmt || '無資料' %></div>
+        <div class="info-value">
+          NT$ <%= (query && query.TradeAmt) || '無資料' %>
+        </div>
       </div>
 
       <div class="info-item">
         <div class="info-label">付款方式</div>
-        <div class="info-value"><%= query.PaymentType || '無資料' %></div>
+        <div class="info-value">
+          <%= (query && query.PaymentType) || '無資料' %>
+        </div>
       </div>
 
       <div class="info-item">
         <div class="info-label">訂單編號</div>
-        <div class="info-value"><%= query.MerchantTradeNo || '無資料' %></div>
+        <div class="info-value">
+          <%= (query && query.MerchantTradeNo) || '無資料' %>
+        </div>
       </div>
 
       <div class="info-item">
         <div class="info-label">交易時間</div>
-        <div class="info-value"><%= query.PaymentDate || '無資料' %></div>
+        <div class="info-value">
+          <%= (query && query.PaymentDate) || '無資料' %>
+        </div>
       </div>
 
       <a href="/" class="back-button">返回首頁</a>
+
+      <% if (query && Object.keys(query).length) { %>
+      <pre
+        style="
+          margin-top: 16px;
+          background: #fff;
+          padding: 12px;
+          border-radius: 6px;
+          overflow: auto;
+        "
+      >
+ <%= JSON.stringify(query, null, 2) %>
+       </pre
+      >
+      <% } %>
     </div>
   </body>
 </html>

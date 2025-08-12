@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <title>付款完成</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 680px;
+        margin: 40px auto;
+        padding: 0 16px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>感謝您的訂購！</h2>
+    <p id="msg">我們正在確認您的付款狀態...</p>
+    <div id="detail" style="display: none">
+      <p>訂單編號：<span id="oid"></span></p>
+      <p>交易序號：<span id="tno"></span></p>
+      <p>狀態：<span id="status"></span></p>
+    </div>
+
+    <script>
+      const qs = new URLSearchParams(location.search);
+      const orderId = qs.get("orderId");
+      const tradeNo = qs.get("tradeNo");
+      document.getElementById("oid").textContent = orderId || "-";
+      document.getElementById("tno").textContent = tradeNo || "-";
+
+      // 由於後端（n8n→Node）會在背景更新資料庫，這裡輪詢查詢狀態（或用 WebSocket/SSE）
+      async function poll() {
+        try {
+          // 建議 Spring Boot 提供查詢 API，直接讀同一顆 DB
+          const r = await fetch(`/api/orders/status?orderId=${orderId}`);
+          if (!r.ok) throw new Error("not ok");
+          const data = await r.json(); // {status:'PAID'|'PENDING'|'FAILED', paymentDate, ...}
+
+          if (data.status === "PAID") {
+            document.getElementById("msg").textContent = "付款成功 ✅";
+            document.getElementById("status").textContent = "已付款";
+            document.getElementById("detail").style.display = "";
+          } else if (data.status === "FAILED") {
+            document.getElementById("msg").textContent = "付款失敗或已取消 ❌";
+            document.getElementById("status").textContent = "失敗";
+            document.getElementById("detail").style.display = "";
+          } else {
+            // PENDING 繼續等
+            setTimeout(poll, 1500);
+            return;
+          }
+        } catch (e) {
+          // 後端尚未寫入前可能 404，稍後再試
+          setTimeout(poll, 1500);
+        }
+      }
+      if (orderId) poll();
+      else document.getElementById("msg").textContent = "未帶入訂單編號";
+    </script>
+  </body>
+</html>

@@ -140,16 +140,25 @@ document.addEventListener("DOMContentLoaded", function () {
       valid = false;
     }
 
-    // 驗證密碼
+    // 驗證密碼（至少8碼且含英數字）
     const password = document.getElementById("register-password");
     if (!password.value.trim()) {
       password.value = "";
       password.placeholder = "Password is required";
       valid = false;
-    } else if (password.value.length < 6) {
+    } else if (password.value.length < 8) {
       password.value = "";
-      password.placeholder = "At least 6 characters";
+      password.placeholder = "At least 8 characters";
       valid = false;
+    } else {
+      // 檢查是否包含英文字母和數字
+      const hasLetter = /[a-zA-Z]/.test(password.value);
+      const hasNumber = /[0-9]/.test(password.value);
+      if (!hasLetter || !hasNumber) {
+        password.value = "";
+        password.placeholder = "Must contain letters and numbers";
+        valid = false;
+      }
     }
 
     // 如果驗證通過，發送註冊請求
@@ -772,7 +781,29 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function showForgotPasswordModal() {
-    // 創建模態視窗背景
+    // 動態創建 style 標籤來覆蓋全域的 placeholder 樣式
+    const styleElement = document.createElement("style");
+    styleElement.textContent = `
+      #forgot-email::placeholder,
+      #forgot-password::placeholder {
+        color: #666 !important;
+      }
+      #forgot-email::-webkit-input-placeholder,
+      #forgot-password::-webkit-input-placeholder {
+        color: #666 !important;
+      }
+      #forgot-email::-moz-placeholder,
+      #forgot-password::-moz-placeholder {
+        color: #666 !important;
+      }
+      #forgot-email:-ms-input-placeholder,
+      #forgot-password:-ms-input-placeholder {
+        color: #666 !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+
+    // 創建忘記密碼彈窗
     const modalOverlay = document.createElement("div");
     modalOverlay.id = "forgotPasswordModalOverlay";
     modalOverlay.style.cssText = `
@@ -1008,6 +1039,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 關閉忘記密碼模態視窗
   function closeForgotPasswordModal() {
+    // 移除動態創建的 style 標籤
+    const dynamicStyles = document.querySelectorAll("style");
+    dynamicStyles.forEach((style) => {
+      if (
+        style.textContent.includes("#forgot-email::placeholder") ||
+        style.textContent.includes("#forgot-password::placeholder")
+      ) {
+        style.remove();
+      }
+    });
+
     const modal = document.getElementById("forgotPasswordModalOverlay");
     if (modal) {
       modal.style.animation = "fadeOut 0.3s ease";
