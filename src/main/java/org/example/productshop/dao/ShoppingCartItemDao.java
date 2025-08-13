@@ -49,10 +49,16 @@ public class ShoppingCartItemDao {
     }
 
     // 刪除購物車商品
-    public int deleteById(long cartItemId) {
-        String sql = "DELETE FROM shopping_cart_items WHERE id = :id";
-        return jdbcTemplate.update(sql, new MapSqlParameterSource("id", cartItemId));
+    public int deleteCartItem(long userId, long cartItemId) {
+        String sql = """
+        DELETE FROM shopping_cart_items
+        WHERE id = :id AND user_id = :userId
+    """;
+        return jdbcTemplate.update(sql, new MapSqlParameterSource()
+                .addValue("id", cartItemId)   // long OK
+                .addValue("userId", userId)); // long OK
     }
+
 
 
     // 新增(減少)購物車商品

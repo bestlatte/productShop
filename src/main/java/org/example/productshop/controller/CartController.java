@@ -4,6 +4,7 @@ import org.example.productshop.entity.CartRemoveRequest;
 import org.example.productshop.entity.CartRequest;
 import org.example.productshop.service.CartService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -31,10 +32,13 @@ public class CartController {
 
 
     // 移除購物車
-    @DeleteMapping("/remove")
-    public ResponseEntity<?> remove(@RequestParam long cartItemId) {
-        String msg = cartService.removeFromCart(cartItemId);
-        return ResponseEntity.ok(Map.of("message", msg));
+    @DeleteMapping("/remove/{userId}")
+    public ResponseEntity<?> remove(
+            @PathVariable long userId,
+            @RequestParam("cartItemId") long cartItemId
+    ) {
+        int rows = cartService.removeCartItem(userId, cartItemId);
+        return ResponseEntity.ok(Map.of("message", "商品已從購物車刪除"));
     }
 
 

@@ -35,12 +35,11 @@ public class CartService {
 
 
     }
-    public String removeFromCart(long cartItemId) {
-        int rows = cartItemDao.deleteById(cartItemId);
-        if (rows == 0) {
-            throw new ItemNotFoundException("購物車中沒有此商品");
-        }
-        return "商品已從購物車刪除";
+
+    public int removeCartItem(long userId, long cartItemId) {
+        int rows = cartDao.deleteCartItem(userId, cartItemId);
+        if (rows == 0) throw new ItemNotFoundException("購物車中沒有此商品");
+        return rows;
     }
 
 
