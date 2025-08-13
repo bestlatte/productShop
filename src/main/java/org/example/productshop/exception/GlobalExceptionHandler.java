@@ -67,10 +67,20 @@ public class GlobalExceptionHandler {
     }
 
     //刪除購物車商品
+    @ExceptionHandler(org.example.productshop.exception.ItemNotFoundException.class)
     public ResponseEntity<?> handleCartItemNotFound(Exception e) {
         return ResponseEntity.status(404).body(Map.of(
                 "error", "ITEM_NOT_FOUND",
                 "message", "購物車中沒有此商品"
+        ));
+    }
+
+    //顯示已加入購物車商品
+    @ExceptionHandler(org.example.productshop.exception.CartEmptyException.class)
+    public ResponseEntity<?> handleCartEmpty(Exception e) {
+        return ResponseEntity.status(404).body(Map.of(
+                "error", "CART_EMPTY",
+                "message", "購物車是空的"
         ));
     }
 }

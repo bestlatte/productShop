@@ -1,11 +1,15 @@
 package org.example.productshop.dao;
 
+import org.example.productshop.entity.CartItemView;
 import org.example.productshop.entity.ShoppingCartItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public class ShoppingCartItemDao {
@@ -69,4 +73,35 @@ public class ShoppingCartItemDao {
         return jdbcTemplate.query(sql, new MapSqlParameterSource("id", cartItemId),
                 rs -> rs.next() ? rs.getInt("stock_quantity") : 0);
     }
+
+    // 顯示購物車已加入商品
+    public List<CartItemView> listCartItemsByUserId(long userId) {
+        String sql = """
+        SELECT 
+            c.id           AS cart_item_id,
+            c.product_id   AS product_id,
+            p.name         AS name,
+            p.price        AS price,
+            c.quantity     AS quantity,
+            (p.price * c.quantity) AS subtotal
+        FROM shopping_cart_items c
+        JOIN products p ON p.id = c.product_id
+        WHERE c.user_id = :userId
+        ORDER BY c.id
+    """;
+
+        RowMapper<CartItemView> mapper = (rs, i) -> {
+            CartItemView v = new CartItemView();
+            v.setCartItemId(rs.getLong("cart_item_id"));
+            v.setProductId(rs.getLong("product_id"));
+            v.setName(rs.getString("name"));
+            v.setPrice(rs.getBigDecimal("price"));
+            v.setQuantity(rs.getInt("quantity"));
+            v.setSubtotal(rs.getBigDecimal("subtotal"));
+            return v;
+        };
+
+        return jdbcTemplate.query(sql, new MapSqlParameterSource("userId", userId), mapper);
+    }
+
 }

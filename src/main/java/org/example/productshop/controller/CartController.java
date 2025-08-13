@@ -62,4 +62,15 @@ public class CartController {
             throw e;
         }
     }
+
+    //顯示已加入購物車商品
+    @GetMapping("/{userId}")
+    public ResponseEntity<?> getCart(@PathVariable long userId) {
+        var summary = cartService.getCart(userId);
+        // 直接回你要的 keys
+        return ResponseEntity.ok(Map.of(
+                "items", summary.getItems(),
+                "totalPrice", summary.getTotalPrice()
+        ));
+    }
 }

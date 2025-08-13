@@ -1,10 +1,16 @@
 package org.example.productshop.service;
 
 import org.example.productshop.dao.ShoppingCartItemDao;
+import org.example.productshop.entity.CartItemView;
+import org.example.productshop.entity.CartSummary;
 import org.example.productshop.entity.ShoppingCartItem;
+import org.example.productshop.exception.CartEmptyException;
 import org.example.productshop.exception.ItemNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.math.BigDecimal;
+import java.util.List;
 
 @Service
 public class CartService {
@@ -53,4 +59,15 @@ public class CartService {
         }
     }
 
+    public CartSummary getCart(long userId) {
+        List<CartItemView> items = cartDao.listCartItemsByUserId(userId);
+        if (items.isEmpty()) {
+            throw new CartEmptyException("購物車是空的");
+        }
+        BigDecimal total = items.stream()
+                .map(CartItemView::getSubtotal)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+
+        return new CartSummary(items, total);
+    }
 }
