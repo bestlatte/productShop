@@ -30,6 +30,40 @@ public class CartController {
         }
     }
 
+    @GetMapping("/remove")
+    public ResponseEntity<?> removeByGet(
+            @RequestParam("cartItemId") long cartItemId,
+            @RequestParam(value = "userId", required = false) Long userId
+    ) {
+        if (cartItemId <= 0) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "error", "INVALID_PARAM",
+                    "message", "cartItemId 無效"
+            ));
+        }
+        try {
+            int rows = cartService.removeCartItem(userId != null ? userId : 0L, cartItemId);
+            if (rows <= 0) {
+                return ResponseEntity.status(404).body(Map.of(
+                        "error", "CART_ITEM_NOT_FOUND",
+                        "message", "找不到購物車商品或無權限"
+                ));
+            }
+            return ResponseEntity.ok(Map.of("message", "商品已從購物車刪除"));
+        } catch (org.springframework.dao.DataIntegrityViolationException e) {
+            return ResponseEntity.status(409).body(Map.of(
+                    "error", "CONSTRAINT_VIOLATION",
+                    "message", "受資料表關聯限制，無法刪除"
+            ));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(500).body(Map.of(
+                    "error", "INTERNAL_ERROR",
+                    "message", "執行期間發生錯誤"
+            ));
+        }
+    }
+
 
     // 移除購物車
     @DeleteMapping("/remove/{userId}")
@@ -78,3 +112,5 @@ public class CartController {
         ));
     }
 }
+
+

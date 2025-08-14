@@ -1,228 +1,705 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- ===== HTML 文件結構 ===== -->
 
-    <link rel="stylesheet" href="./CSS/queries.css" />
-    <link rel="stylesheet" href="./CSS/style.css" />
-    <link
-      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
-      rel="stylesheet"
-    />
-    <title>Prilist | Login & Registration</title>
-  </head>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech2etc Ecommerce Tutorial</title>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+
+  <link rel="stylesheet" href="./CSS/style.css" />
+</head>
+
+<body>
+  <!-- ===== 頁面導航區塊 ===== -->
+
   <body>
-    <div class="wrapper">
-      <nav class="nav">
-        <div class="nav-logo">
-          <p>LOGO .</p>
-        </div>
-        <div class="nav-menu" id="navMenu">
-          <ul>
-            <li><a href="#" class="link active">Home</a></li>
-            <li><a href="#" class="link">Origin Info</a></li>
-            <li><a href="#" class="link">About</a></li>
-            <li><a href="#" class="link">FAQ</a></li>
-          </ul>
-        </div>
-        <div class="nav-button">
-          <button class="btn white-btn" id="loginBtn" onclick="login()">
-            Sign In
-          </button>
-          <button class="btn" id="registerBtn" onclick="register()">
-            Sign Up
-          </button>
-        </div>
-        <div class="nav-menu-btn">
-          <i class="bx bx-menu" onclick="myMenuFunction()"></i>
-        </div>
-      </nav>
+    <section id="header">
+      <a href="#" id="logo-link">
+        <img src="img/Logo2.png" alt="SwanGo Logo" id="fixed-logo" />
+      </a>
+      <ul id="navbar">
+        <li><a class="active" href="index.html">Home</a></li>
+        <li><a href="shop.html">Origin Info</a></li>
+        <!-- <li><a href="blog.html"></a></li> -->
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">FAQ</a></li>
+        <li id="lg-bag">
+          <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+        </li>
+        <a href="#" id="close"><i class="far fa-times"></i></a>
+      </ul>
+      </div>
+      <div id="mobile">
+        <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+        <i id="bar" class="fas fa-outdent"></i>
+      </div>
+    </section>
 
-      <!----------------------------- Form box ------------->
-      <div class="form-box">
-        <div class="welcome-container">
-          <h1 class="welcome-title">Welcome back</h1>
-          <div class="welcome-text">
-            <p>最新果價、產地直送，為你掌握每一刻的美味。</p>
-            <p>登入後查看專屬推薦，支持在地果農從選果開始 !</p>
-            <p><strong>選果，用心挑選每一顆果。</strong></p>
-            <button class="get-started-btn">
-              <span class="btn-title">Get Started</span>
-              <span class="icon-arrow">
-                <svg
-                  width="66px"
-                  height="43px"
-                  viewBox="0 0 66 43"
-                  version="1.1"
-                  xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink"
-                >
-                  <g
-                    id="arrow"
-                    stroke="none"
-                    stroke-width="1"
-                    fill="none"
-                    fill-rule="evenodd"
-                  >
-                    <path
-                      id="arrow-icon-one"
-                      d="M40.1543933,3.89485454 L43.9763149,0.139296592 C44.1708311,-0.0518420739 44.4826329,-0.0518571125 44.6771675,0.139262789 L65.6916134,20.7848311 C66.0855801,21.1718824 66.0911863,21.8050225 65.704135,22.1989893 C65.7000188,22.2031791 65.6958657,22.2073326 65.6916762,22.2114492 L44.677098,42.8607841 C44.4825957,43.0519059 44.1708242,43.0519358 43.9762853,42.8608513 L40.1545186,39.1069479 C39.9575152,38.9134427 39.9546793,38.5968729 40.1481845,38.3998695 C40.1502893,38.3977268 40.1524132,38.395603 40.1545562,38.3934985 L56.9937789,21.8567812 C57.1908028,21.6632968 57.193672,21.3467273 57.0001876,21.1497035 C56.9980647,21.1475418 56.9959223,21.1453995 56.9937605,21.1432767 L40.1545208,4.60825197 C39.9574869,4.41477773 39.9546013,4.09820839 40.1480756,3.90117456 C40.1501626,3.89904911 40.1522686,3.89694235 40.1543933,3.89485454 Z"
-                      fill="#FFFFFF"
-                    ></path>
-                    <path
-                      id="arrow-icon-two"
-                      d="M20.1543933,3.89485454 L23.9763149,0.139296592 C24.1708311,-0.0518420739 24.4826329,-0.0518571125 24.6771675,0.139262789 L45.6916134,20.7848311 C46.0855801,21.1718824 46.0911863,21.8050225 45.704135,22.1989893 C45.7000188,22.2031791 45.6958657,22.2073326 45.6916762,22.2114492 L24.677098,42.8607841 C24.4825957,43.0519059 24.1708242,43.0519358 23.9762853,42.8608513 L20.1545186,39.1069479 C19.9575152,38.9134427 19.9546793,38.5968729 20.1481845,38.3998695 C20.1502893,38.3977268 20.1524132,38.395603 20.1545562,38.3934985 L36.9937789,21.8567812 C37.1908028,21.6632968 37.193672,21.3467273 37.0001876,21.1497035 C36.9980647,21.1475418 36.9959223,21.1453995 36.9937605,21.1432767 L20.1545208,4.60825197 C19.9574869,4.41477773 19.9546013,4.09820839 20.1480756,3.90117456 C20.1501626,3.89904911 20.1522686,3.89694235 20.1543933,3.89485454 Z"
-                      fill="#FFFFFF"
-                    ></path>
-                    <path
-                      id="arrow-icon-three"
-                      d="M0.154393339,3.89485454 L3.97631488,0.139296592 C4.17083111,-0.0518420739 4.48263286,-0.0518571125 4.67716753,0.139262789 L25.6916134,20.7848311 C26.0855801,21.1718824 26.0911863,21.8050225 25.704135,22.1989893 C25.7000188,22.2031791 25.6958657,22.2073326 25.6916762,22.2114492 L4.67709797,42.8607841 C4.48259567,43.0519059 4.17082418,43.0519358 3.97628526,42.8608513 L0.154518591,39.1069479 C-0.0424848215,38.9134427 -0.0453206733,38.5968729 0.148184538,38.3998695 C0.150289256,38.3977268 0.152413239,38.395603 0.154556228,38.3934985 L16.9937789,21.8567812 C17.1908028,21.6632968 17.193672,21.3467273 17.0001876,21.1497035 C16.9980647,21.1475418 16.9959223,21.1453995 16.9937605,21.1432767 L0.15452076,4.60825197 C-0.0425130651,4.41477773 -0.0453986756,4.09820839 0.148075568,3.90117456 C0.150162624,3.89904911 0.152268631,3.89694235 0.154393339,3.89485454 Z"
-                      fill="#FFFFFF"
-                    ></path>
-                  </g>
-                </svg>
+    <!-- ===== 主要橫幅區塊 ===== -->
+    <section id="hero">
+      <h4>實價即時更新・新鮮直送</h4>
+      <h2>今天的水果價，馬上看</h2>
+      <h1>與產地同步，每日最新價格與供應量</h1>
+      <p>產季波動、節日需求？即時更新不錯過最佳價格！</p>
+      <button>馬上逛逛</button>
+    </section>
+
+    <!-- ===== 功能特色區塊 (已註解) ===== -->
+    <!-- <section id="feature" class="section-p1">
+      <div class="fe-box">
+        <img src="img/features/f1.png" alt="" />
+        <h6>Free Shipping</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f2.png" alt="" />
+        <h6>Online Order</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f3.png" alt="" />
+        <h6>Save Money</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f4.png" alt="" />
+        <h6>Promotions</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/features/f5.png" alt="" />
+        <h6>Happy Sell</h6>
+      </div>
+      <div class="fe-box">
+        <img src="img/FruitsImg/null/G1_0.jpg" alt="" />
+        <h6>F24/7 Support</h6>
+      </div>
+    </section> -->
+
+    <!-- ===== 當季鮮果商品區塊 ===== -->
+    <section id="product1" class="section-p1">
+      <h2>當季鮮果上架！</h2>
+      <p>正值產季，鮮甜多汁</p>
+      <div class="main-content">
+        <!-- ===== 側邊欄 ===== -->
+        <aside class="sidebar">
+          <!-- ===== 商品類別 ===== -->
+          <div class="sidebar-section">
+            <h3 class="sidebar-title">商品類別</h3>
+            <ul class="sidebar-list">
+              <li><a href="#">蘋果</a></li>
+              <li>
+                <a href="#">葡萄 <span class="new-tag">NEW</span></a>
+              </li>
+              <li><a href="#">莓果</a></li>
+              <li><a href="#">芒果</a></li>
+              <li><a href="#">地瓜</a></li>
+              <li>
+                <a href="#">桃 <span class="new-tag">NEW</span></a>
+              </li>
+              <li><a href="#">梨</a></li>
+              <li>
+                <a href="#">柑橘 <span class="new-tag">NEW</span></a>
+              </li>
+              <li><a href="#">哈密瓜</a></li>
+              <li><a href="#">奇異果</a></li>
+            </ul>
+          </div>
+
+          <!-- ===== 優惠促銷 ===== -->
+          <div class="sidebar-section">
+            <h3 class="sidebar-title">優惠促銷</h3>
+            <ul class="sidebar-list">
+              <li>
+                <a href="#">特價專區 <span class="new-tag">NEW</span></a>
+              </li>
+              <li>
+                <a href="#">加價購專區 <span class="new-tag">NEW</span></a>
+              </li>
+            </ul>
+          </div>
+
+          <!-- ===== 您的預算 ===== -->
+          <div class="sidebar-section">
+            <h3 class="sidebar-title">您的預算</h3>
+            <ul class="sidebar-list">
+              <li><a href="#">0-999$</a></li>
+              <li><a href="#">1000-1999$</a></li>
+              <li><a href="#">2000-2999$</a></li>
+              <li><a href="#">3000$ ↑</a></li>
+            </ul>
+          </div>
+        </aside>
+
+        <!-- ===== 商品列表 ===== -->
+        <div class="products-area">
+          <div class="pro-container center-cards">
+            <div class="pro featured">
+              <img src="./img/fruit/top/T1.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag cyan">多汁香甜</span>
+                <span class="product-tag gray">沙脆口感</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">西瓜</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="sproduct.html"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+              <img src="./img/fruit/top/J4.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag lime">Q彈爽滑帶有蜜味</span>
+                <span class="product-tag teal">晶瑩剔透</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">荔枝</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+              <img src="./img/fruit/top/R4.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag pink">夏日嚴選</span>
+                <span class="product-tag purple">香甜濃郁</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">芒果</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="sproduct.html"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+              <img src="./img/fruit/top/W1.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag green">巔峰香甜滋味</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">哈密瓜</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+              <img src="./img/fruit/top/Y2.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag lime">口感緊實帶有彈性</span>
+                <span class="product-tag yellow">濃郁的王者香氣</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">水蜜桃</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="sproduct.html"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+
+            <div class="pro">
+              <img src="./img/fruit/top/N1.jpg" alt="" />
+              <div class="des">
+                <span class="product-tag teal">酸甜適中</span>
+                <span class="product-tag pink">多汁濃郁氣味</span>
+                <span class="product-tag rating-tag">
+                  <span class="rating-label">推薦指數：</span>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star-half-alt"></i>
+                </span>
+                <div class="title-row">
+                  <h5 class="product-name">百香果</h5>
+                  <h4 class="price">$78</h4>
+                </div>
+              </div>
+              <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 促銷橫幅區塊 ===== -->
+    <div class="banner-container">
+      <section id="banner" class="section-m1">
+        <h4>產地直送，新鮮看得見</h4>
+        <h2>Up to <span>30% Off</span> – Seasonal Fruits 🍎🍊🍇</h2>
+        <button class="normal">立即選購</button>
+      </section>
+    </div>
+
+    <!-- ===== 人氣必買商品區塊 ===== -->
+    <section id="product1" class="section-p1 center-target">
+      <h2>人氣必買經典款</h2>
+      <p>甜度穩定，回購率最高的安心選擇</p>
+      <div class="pro-container">
+        <div class="pro">
+          <img src="./img/fruit/mid/A4.jpg" alt="" />
+          <div class="des">
+            <span class="product-tag purple">Q彈口感</span>
+            <span class="product-tag orange">淡淡清香</span>
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">香蕉</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/B2.jpg" alt="" />
+          <div class="des">
+            <span class="product-tag blue">口感多纖維</span>
+            <span class="product-tag green">酸甜滋味</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">鳳梨</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/I4.jpg" alt="" />
+          <div class="des">
+            <span class="product-tag red">軟甜味濃</span>
+            <span class="product-tag orange">牛奶好夥伴</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">木瓜</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/X3.jpg" alt="" />
+          <div class="des">
+            <span class="product-tag teal">沙脆口感</span>
+            <span class="product-tag yellow">清甜風雅</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">蘋果</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/P1.jpg" alt="" />
+          <div class="des">
+            <span class="product-tag green">微軟不過硬</span>
+            <span class="product-tag orange">淡淡甜味</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">芭樂</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/31 (1).jpg" alt="" />
+          <div class="des">
+            <span class="product-tag pink">綿密柔軟</span>
+            <span class="product-tag teal">味道甜美</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">釋迦</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/Q1_1 (2).jpg" alt="" />
+          <div class="des">
+            <span class="product-tag yellow">多汁脆爽</span>
+            <span class="product-tag gray">甜度超高</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">蓮霧</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+        <div class="pro">
+          <img src="./img/fruit/mid/811_1 (1).jpg" alt="" />
+          <div class="des">
+            <span class="product-tag lime">飽滿碩大</span>
+            <span class="product-tag brown">軟糯濃郁風味</span>
+
+            <span class="product-tag rating-tag">
+              <span class="rating-label">推薦指數：</span>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+            </span>
+
+            <div class="title-row">
+              <h5 class="product-name">火龍果</h5>
+              <h4 class="price">$78</h4>
+            </div>
+          </div>
+          <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 促銷橫幅區塊 ===== -->
+    <div class="banner-container">
+      <section id="banner" class="section-m1">
+        <h4>Repair Services</h4>
+        <h2>Up to <span>70% Off</span> – All t-Shirts & Accessories</h2>
+        <button class="normal">Explore More</button>
+      </section>
+
+      <!-- ===== 限量商品區塊 ===== -->
+      <section id="product1" class="section-p1">
+        <h2 class="center-text">最後限量，錯過等明年</h2>
+        <p class="center-text">倒數上架中，把握最後鮮甜</p>
+        <div class="pro-container">
+          <div class="pro">
+            <img src="img/fruit/bottom/45_1.jpg" alt="" />
+            <div class="des">
+              <span class="product-tag pink">酸甜好滋味</span>
+              <span class="product-tag purple">少女最愛</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
               </span>
-            </button>
-            <div class="get-started-block"></div>
-          </div>
-        </div>
-        <!------------------- login form ---------------->
 
-        <div class="login-container" id="login">
-          <div class="top">
-            <span
-              >還沒有帳號嗎 ? <a href="#" onclick="register()">Sign Up</a></span
-            >
-            <header>Login</header>
-          </div>
-          <div class="input-box">
-            <input
-              type="text"
-              class="input-field"
-              id="login-email"
-              placeholder="Username or Email"
-            />
-            <i class="bx bx-user"></i>
-          </div>
-          <div class="input-box">
-            <input
-              type="password"
-              class="input-field"
-              id="login-password"
-              placeholder="Password"
-            />
-            <i class="bx bx-lock-alt"></i>
-          </div>
-          <div class="input-box">
-            <input
-              type="submit"
-              class="submit"
-              id="login-submit"
-              value="Sign In"
-            />
-          </div>
-          <div class="two-col">
-            <div class="one">
-              <input type="checkbox" id="login-check" />
-              <label for="login-check"> Remember Me</label>
+              <div class="title-row">
+                <h5 class="product-name">草莓</h5>
+                <h4 class="price">$78</h4>
+              </div>
             </div>
-            <div class="two">
-              <label
-                ><a href="#" id="forgot-password-link">忘記密碼 ?</a></label
-              >
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/fruit/bottom/S2.jpg	" alt="" />
+            <div class="des">
+              <span class="product-tag orange">味道超濃</span>
+              <span class="product-tag green">顆顆汁水飽滿</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+
+              <div class="title-row">
+                <h5 class="product-name">葡萄</h5>
+                <h4 class="price">$78</h4>
+              </div>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/fruit/bottom/K1.jpg" alt="" />
+            <div class="des">
+              <span class="product-tag teal">甜度超高</span>
+              <span class="product-tag cyan">風味優雅</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+
+              <div class="title-row">
+                <h5 class="product-name">龍眼</h5>
+                <h4 class="price">$78</h4>
+              </div>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/fruit/bottom/N1.jpg	" alt="" />
+            <div class="des">
+              <span class="product-tag lime">Q軟多汁</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+
+              <div class="title-row">
+                <h5 class="product-name">李子</h5>
+                <h4 class="price">$78</h4>
+              </div>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/fruit/bottom/M1.jpg	" alt="" />
+            <div class="des">
+              <span class="product-tag pink">清甜多汁芳香</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+
+              <div class="title-row">
+                <h5 class="product-name">楊桃</h5>
+                <h4 class="price">$78</h4>
+              </div>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+          <div class="pro">
+            <img src="img/fruit/bottom/71_1.jpg" alt="" />
+            <div class="des">
+              <span class="product-tag green">新鮮有機</span>
+              <span class="product-tag red">圓潤多汁</span>
+
+              <span class="product-tag rating-tag">
+                <span class="rating-label">推薦指數：</span>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </span>
+
+              <div class="title-row">
+                <h5 class="product-name">小番茄</h5>
+                <h4 class="price">$78</h4>
+              </div>
+            </div>
+            <a href="#"><i class="fal fa-shopping-cart cart"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== 小型橫幅區塊 ===== -->
+      <section id="sm-banner" class="section-p1">
+        <div class="banner-box">
+          <h4>當季優惠</h4>
+          <h2>買一送一 限時搶購</h2>
+          <span>嚴選產地直送水果，新鮮看得見</span>
+          <button class="white">立即搶購</button>
+        </div>
+        <div class="banner-box banner-box2">
+          <h4>夏日嚴選</h4>
+          <h2>即將開賣</h2>
+          <span>最新鮮的季節水果即將上架</span>
+          <button class="white">查看商品</button>
+        </div>
+      </section>
+
+      <!-- ===== 季節性橫幅區塊 ===== -->
+      <section id="banner3">
+        <div class="banner-box">
+          <h2>當令鮮果特賣</h2>
+          <h3>本季水果 最高 30% OFF</h3>
+        </div>
+        <div class="banner-box banner-box2">
+          <h2>新品上架</h2>
+          <h3>本週新增 5 款熱賣水果</h3>
+        </div>
+        <div class="banner-box banner-box3">
+          <h2>禮盒專區</h2>
+          <h3>送禮首選 高人氣組合</h3>
+        </div>
+      </section>
+
+      <!-- ===== 電子報訂閱區塊 ===== -->
+      <section id="newsletter" class="section-p1 section-m1">
+        <div class="newstext">
+          <h4>Sign Up For Newsletters</h4>
+          <p>
+            Get E-mail updates about our latest shop and
+            <span>special offers.</span>
+          </p>
+        </div>
+        <div class="form">
+          <input type="text" placeholder="Your email address" />
+          <button class="normal">Sign Up</button>
+        </div>
+      </section>
+
+      <!-- ===== 頁面底部區塊 ===== -->
+      <footer class="section-p1">
+        <div class="col">
+          <img class="logo" src="img/logo.png" alt="" />
+          <h4>Contact</h4>
+          <p><strong>Address: </strong> 408 台中市 南屯區 公益路二段 51號18樓</p>
+          <p><strong>Phone:</strong> +04 1234 5678 /(+886) 12 2345 6789</p>
+          <p><strong>Hours:</strong> 10:00 - 18:00, Mon - Sat</p>
+          <div class="follow">
+            <h4>Follow Us</h4>
+            <div class="icon">
+              <i class="fab fa-facebook-f"></i>
+              <i class="fab fa-twitter"></i>
+              <i class="fab fa-instagram"></i>
+              <!-- <i class="fab fa-pinterest-p"></i> -->
+              <!-- <i class="fab fa-youtube"></i> -->
             </div>
           </div>
         </div>
 
-        <!------------------- registration form -------------->
-        <div class="register-container" id="register">
-          <div class="top">
-            <span
-              >已經有帳號了嗎 ? <a href="#" onclick="login()">Login</a></span
-            >
-            <header>Sign Up</header>
-          </div>
-          <div class="two-forms">
-            <div class="input-box">
-              <input
-                type="text"
-                class="input-field"
-                id="register-firstname"
-                placeholder="Name"
-              />
-              <i class="bx bx-user"></i>
-            </div>
-            <div class="input-box">
-              <input
-                type="tel"
-                class="input-field"
-                id="register-phone"
-                placeholder="Phone"
-              />
-              <i class="bx bx-phone"></i>
-            </div>
-          </div>
-          <div class="input-box">
-            <input
-              type="text"
-              class="input-field"
-              id="register-email"
-              placeholder="Email"
-            />
-            <i class="bx bx-envelope"></i>
-          </div>
-          <div class="input-box">
-            <input
-              type="password"
-              class="input-field"
-              id="register-password"
-              placeholder="Password"
-            />
-            <i class="bx bx-lock-alt"></i>
-          </div>
-          <div class="input-box">
-            <input type="submit" class="submit" value="Register" />
-          </div>
-          <div class="two-col">
-            <div class="one">
-              <input type="checkbox" id="register-check" />
-              <label for="register-check"> Remember Me</label>
-            </div>
-            <div class="two">
-              <label><a href="#">Terms & conditions</a></label>
-            </div>
-          </div>
+        <div class="col">
+          <h4>About</h4>
+          <a href="#">About Us</a>
+          <a href="#">Delivery Information</a>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms & Conditions</a>
+          <a href="#">Contact Us</a>
         </div>
 
-        <!-- Login Google Button -->
-        <div class="login-google-btn">
-          <button type="button" class="google-login-btn">
-            <i class="bx bxl-google"></i>
-            <span>Continue with Google</span>
-          </button>
+        <div class="col">
+          <h4>My Account</h4>
+          <a href="#">Sign In</a>
+          <a href="#">View Cart</a>
+          <a href="#">My Wishlist</a>
+          <a href="#">Track My Order</a>
+          <a href="#">Help</a>
         </div>
 
-        <!-- Register Google Button -->
-        <div class="register-google-btn">
-          <button type="button" class="google-login-btn">
-            <i class="bx bxl-google"></i>
-            <span>Sign up with Google</span>
-          </button>
+        <div class="col install">
+          <h4>Install App</h4>
+          <p>From App Store or Google Play</p>
+          <div class="row">
+            <img src="img/pay/app.jpg" alt="" />
+            <img src="img/pay/play.jpg" alt="" />
+          </div>
+          <p>Secured Payment Gateways</p>
+          <img src="img/pay/pay.png" alt="" />
         </div>
-      </div>
-    </div>
 
-    <!-- 引入JavaScript文件 -->
-    <script src="./JS/index.js"></script>
-    <div class="mini-footer">
-      <div class="mini-footer-inner">
-        <div class="mini-footer-text">
-          <p>© 2025 Prilist. All rights reserved.</p>
-          <p>Your trusted source for local fruits.</p>
+        <div class="copyright">
+          <p>© 2025.Big company</p>
         </div>
-      </div>
-    </div>
+      </footer>
+
+      <script src="script.js"></script>
   </body>
+
 </html>
