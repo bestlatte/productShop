@@ -8,7 +8,7 @@
   <title>Tech2etc Ecommerce Tutorial</title>
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
 
-    <link rel="stylesheet" href="./CSS/style.css" />
+  <link rel="stylesheet" href="./CSS/style.css" />
 </head>
 
 <body data-product-id="1">
@@ -16,22 +16,35 @@
     <a href="#"><img src="" class="logo" alt="" /></a>
 
     <div>
-      <ul id="navbar">
-        <li><a href="index.html">Home</a></li>
-        <li><a class="active" href="shop.html">Shop</a></li>
-        <li><a href="blog.html">Blog</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        <li id="lg-bag">
-          <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-        </li>
-        <a href="#" id="close"><i class="far fa-times"></i></a>
-      </ul>
-    </div>
-    <div id="mobile">
-      <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
-      <i id="bar" class="fas fa-outdent"></i>
-    </div>
+<ul id="navbar">
+  <li><a href="landing.html">Home</a></li>
+  <li><a class="active" href="shop.html">Shop</a></li>
+  <li><a href="blog.html">Blog</a></li>
+  <li><a href="about.html">About</a></li>
+  <li><a href="contact.html">Contact</a></li>
+
+  <!-- 購物車 -->
+  <li id="lg-bag">
+    <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+  </li>
+
+  <!-- 登入 -->
+  <li id="lg-login">
+    <a href="index.html"><i class="fas fa-user"></i></a>
+  </li>
+
+  <!-- 關閉按鈕（手機版用） -->
+  <li>
+    <a href="#" id="close"><i class="fas fa-times"></i></a>
+  </li>
+</ul>
+
+<!-- 手機版 -->
+<div id="mobile">
+  <a href="cart.html"><i class="far fa-shopping-bag"></i></a>
+  <a href="login.html"><i class="fas fa-user"></i></a>
+  <i id="bar" class="fas fa-outdent"></i>
+</div>
   </section>
 
   <section id="prodetails" class="section-p1">
@@ -75,7 +88,7 @@
   <!-- ===== 本週人氣果物推薦 ===== -->
 
 
-  <section id="product1" class="section-p1">
+  <section id="product1" class="section-p1 center-target">
     <h2>本週人氣果物推薦</h2>
     <p>產地直送・新鮮夏季限定</p>
     <div class="pro-container">

@@ -31,6 +31,7 @@ h2 {
   padding-left: 455px;
 }
 
+
 h4 {
   font-size: 20px;
   color: #222;
@@ -1814,12 +1815,14 @@ footer a:hover {
 
 
 
-/* Hover 效果：稍微亮一點並微微放大 */
+
+
+/* 標籤顏色 */
 .product-tag:hover {
   transform: scale(1.05);
 }
 
-/* Color Themes with hover lighten effect */
+
 .product-tag.red { 
   background-color: #e53935 !important; 
   border-color: #e53935 !important;
@@ -1929,6 +1932,9 @@ footer a:hover {
 }
 
 
+/* 標籤顏色 */
+
+
 #product1 .pro .des .product-tag {
   font-size: 16px;         /* 想更大就 18px */
   line-height: 1.2;
@@ -1952,13 +1958,13 @@ footer a:hover {
   margin-top: 6px;
 }
 
-/* 放大「西瓜」字體（只針對這張卡片） */
+/* 所有卡片文字大小 */
 #product1 .pro.featured .des .product-name {
   font-size: 30px;   /* 原本是 14px */
   font-weight: 700;
 }
 
-/* 評分標籤外觀：和其他 product-tag 一致，但可水平置中對齊星星 */
+/* 評分標籤外觀 */
 #product1 .pro .des .rating-tag {
   display: inline-flex;
   align-items: center;
@@ -1972,7 +1978,246 @@ footer a:hover {
   font-size: 16px;
 }
 
-/*（可選）如果想讓評分的星星小一點或跟著既有設定 */
 #product1 .pro .des .rating-tag i {
-  font-size: 12px;   /* 你的既定星星大小也是 12px */
+  font-size: 12px;   
+}
+
+/* 讓圖片在下、文字在上（覆蓋原本的 background-image 寫法） */
+#sm-banner .banner-box {
+  position: relative;
+  overflow: hidden;
+  background-image: none;            /* 覆蓋掉舊的背景圖設定 */
+}
+
+/* 圖片鋪滿整個 banner-box，跟容器一樣大 */
+#sm-banner .banner-box > img {
+  position: absolute;
+  inset: 0;                          /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;                  /* 保持比例裁切鋪滿 */
+  z-index: 0;
+  display: block;
+}
+
+/* （可選）加一層漸層讓文字更清楚 */
+#sm-banner .banner-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.45),
+    rgba(0,0,0,.1) 60%,
+    rgba(0,0,0,0)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 文字與按鈕疊在最上層 */
+#sm-banner .banner-box > h4,
+#sm-banner .banner-box > h2,
+#sm-banner .banner-box > span,
+#sm-banner .banner-box > button {
+  position: relative;
+  z-index: 2;
+}
+
+
+/* --- 讓 #banner3 的三張卡片：圖片在下、文字在上 --- */
+#banner3 .banner-box {
+  position: relative;
+  overflow: hidden;
+  background-image: none !important;  /* 覆蓋原本的背景圖設定 */
+}
+
+/* 圖片鋪滿整個卡片（跟容器一樣大） */
+#banner3 .banner-box > img {
+  position: absolute;
+  inset: 0;             /* top/right/bottom/left: 0 */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;     /* 保持比例、超出會裁切 */
+  z-index: 0;
+  display: block;
+}
+
+/* 可選：加淡淡的遮罩，讓字更清楚 */
+#banner3 .banner-box::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,.35),
+    rgba(0,0,0,.1) 60%,
+    rgba(0,0,0,0)
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 文字層放最上面 */
+#banner3 .banner-box > h2,
+#banner3 .banner-box > h3 {
+  position: relative;
+  z-index: 2;
+}
+
+/*（可選）統一按鈕/文字顏色與排版 */
+#banner3 h2 { color: #fff; }
+#banner3 h3 { color: #ffd4cf; }
+
+
+/* === 推薦指數：純文字＋星星、單行不換、不浮起 === */
+.rating-tag{
+  display: inline-flex;      /* 讓文字與星星在同一行 */
+  align-items: center;
+  gap: 2px;                  /* 文字與星星距離 */
+  white-space: nowrap;       /* 禁止換行 */
+  line-height: 1;
+  border: none;              /* 確保沒有膠囊邊框 */
+  background: transparent;   /* 也不要有底色 */
+  box-shadow: none;          /* 不要浮起陰影 */
+  padding: 0;
+  margin: 0;
+  cursor: default;
+}
+.rating-tag:hover{
+  background: transparent;
+  box-shadow: none;
+  border: none;
+}
+.rating-tag .rating-label{   /* 「推薦指數：」與第一顆星之間留點距離 */
+  margin-right: 4px;
+}
+.rating-tag i{               /* 防止星星被壓縮換行 */
+  flex: 0 0 auto;
+}
+
+/* 手機微調，避免擠爆換行 */
+@media (max-width: 477px){
+  .rating-tag,
+  .rating-tag i{
+    font-size: 11px;
+  }
+}
+
+/* === 備援：若某處仍保留 product-tag rating-tag，強制把膠囊效果拔掉 === */
+#product1 .pro .des .product-tag.rating-tag{
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: inline-flex !important;
+  align-items: center;
+  gap: 2px;
+  white-space: nowrap;
+  line-height: 1;
+  cursor: default;
+}
+#product1 .pro .des .product-tag.rating-tag:hover{
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+.product-tag {
+  position: relative;
+  color: #333;   /* 確保文字不被淡化 */
+  z-index: 1;
+}
+
+.product-tag::after {
+  content: "";
+  position: absolute;
+  inset: 0; /* 上右下左全覆蓋 */
+  background: rgba(255,255,255,0.4); /* 白色半透明遮罩，可改成黑色 rgba(0,0,0,0.2) */
+  z-index: -1;
+  border-radius: inherit;
+}
+
+
+/* 限量區塊（在 .banner-container 裡的那組 #product1）—改成緊湊網格 */
+.banner-container section#product1 .pro-container {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 一排三格 */
+  gap: 10px;                /* 卡片間距（可調 8~12px） */
+  justify-items: center;    /* 內容置中 */
+}
+
+/* 讓卡片撐滿格子，移除預設 margin/寬度，縮小圖片與下緣距離 */
+.banner-container section#product1 .pro {
+  width: 100%;
+  margin: 10px;                /* 覆蓋原本 #product1 .pro 的 margin:15px 0 */
+}
+
+.banner-container section#product1 .pro img {
+  width: 100%;               /* 圖片 100% -> 90% */
+  display: block;
+  margin: 0 auto 6px;       /* 與文字更靠近 */
+}
+
+/* RWD：平板兩欄、手機一欄 */
+@media (max-width: 1024px) {
+  .banner-container section#product1 .pro-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .banner-container section#product1 .pro-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === 限量區塊的商品格子整體縮小 === */
+.banner-container section#product1 .pro {
+  transform: scale(0.95);   /* 將整個卡片縮小到 90% */
+  transform-origin: center; /* 從中間縮放 */
+  margin: 0 auto;          /* 保持居中 */
+}
+
+/* 縮小後調整格子間距避免過擠 */
+.banner-container section#product1 .pro-container {
+  gap: 0px;   /* 卡片間距略放大一點，讓縮小後不至於太空 */
+}
+
+
+/* === 僅 test.html 的果物標題置中 === */
+.fruit-title {
+  text-align: center;   /* 水平置中 */
+}
+
+.fruit-title h2,
+.fruit-title p {
+  margin: 0.5rem 0;     /* 上下間距一致 */
+}
+
+/* === test.html 專屬：放大 product-tag / 推薦指數 / 商品名稱 === */
+#test-products .product-tag {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+#test-products .rating-tag .rating-label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+#test-products .rating-tag i {
+  font-size: 1.3rem;
+}
+
+#test-products .product-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+/* 手機微調，避免擠爆 */
+@media (max-width: 477px) {
+  #test-products .product-tag { font-size: 1.05rem; }
+  #test-products .rating-tag .rating-label,
+  #test-products .rating-tag i { font-size: 1.1rem; }
+  #test-products .product-name { font-size: 1.2rem; }
 }
